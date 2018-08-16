@@ -18,11 +18,13 @@ shinyUI(fluidPage(
   # Sidebar with a slider
   sidebarLayout(
     sidebarPanel(
-       sliderInput("sliderSepalLength",
+       numericInput("sliderSepalLength",
                    "What is the sepal length?",
                    min = 4,
                    max = 8,
-                   value = 16)
+                   value = 6, 
+                   step = 0.25),
+       submitButton("Submit")
     ),
     
     # Show a plot of the generated distribution

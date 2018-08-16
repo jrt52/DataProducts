@@ -8,8 +8,6 @@
 #
 data(iris)
 library(shiny)
-library(ggplot2)
-
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -25,10 +23,10 @@ shinyServer(function(input, output) {
       sepinput <- input$sliderSepalLength 
       
       plot(iris$Sepal.Length, iris$Petal.Length, xlab = "Sepal Length",
-           ylab = "Petal Length", bty = "n", pch = 16, 
+           ylab = "Petal Length", bty = "n", pch = 1, 
            xlim = c(4, 8), ylim = c(0, 10))
-      modellines <- abline(model1, col = "blue", lwd = 2)
-      points(sepinput, model1pred(), col = "red", pch = 16, cex = 2)
+      modellines <- abline(model1, col = "blue", lty = 2, lwd = 2)
+      points(sepinput, model1pred(), col = "red", pch = 17, cex = 2)
     })
     output$pred1 <- renderText({
             model1pred()
